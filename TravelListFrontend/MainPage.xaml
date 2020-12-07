@@ -8,7 +8,36 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <StackPanel Background="#80ff80" Margin="0">
+        <Image Source="../Assets/images/ballon.jpg"  Margin="0,0,0,20"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="50px"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="50px"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
 
-    </Grid>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Username:" FontSize="36"></TextBlock>
+                <TextBox Grid.Row="0" Grid.Column="2" x:Name="TxtUsername"  FontSize="36"/>
+
+
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Password:" FontSize="36"/>
+                <PasswordBox Grid.Row="2" Grid.Column="2" x:Name="TxtPassword" FontSize="36"/>
+
+            <Button Grid.Row="4" Grid.Column="2" Content="Login" FontSize="36"/>
+
+        </Grid>
+
+    </StackPanel>
+
 </Page>
