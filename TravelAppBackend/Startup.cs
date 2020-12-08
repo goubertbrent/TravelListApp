@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using TravelAppBackend.Data;
 
 namespace TravelAppBackend
 {
@@ -27,10 +28,11 @@ namespace TravelAppBackend
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddSwaggerDocument();
+            services.AddScoped<DataInitializer>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, DataInitializer dataInitializer)
         {
             if (env.IsDevelopment())
             {
@@ -47,6 +49,8 @@ namespace TravelAppBackend
 
             app.UseHttpsRedirection();
             app.UseMvc();
+
+            dataInitializer.InitializeData();
         }
     }
 }
