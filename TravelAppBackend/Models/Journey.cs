@@ -10,6 +10,7 @@ namespace TravelAppBackend.Models
         public int Id { get; set; }
         public DateTime Start { get; set; }
         public List<ItemLine> Items { get; set; }
+        public List<Task> Tasks { get; set; }
         public User User { get; set; }
     }
 }
