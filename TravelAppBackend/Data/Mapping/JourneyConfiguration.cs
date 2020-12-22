@@ -18,7 +18,7 @@ namespace TravelAppBackend.Data.Mapping
 
             builder.HasOne(j => j.User)
                 .WithMany()
-                .IsRequired();
+                .IsRequired(false);
 
             builder.HasMany(j => j.Tasks)
                 .WithOne()
