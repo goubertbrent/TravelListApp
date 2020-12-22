@@ -37,6 +37,7 @@ namespace TravelAppBackend
             services.AddScoped<IJourneyRepository, JourneyRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IItemRepository, ItemRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

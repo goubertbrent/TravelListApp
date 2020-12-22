@@ -32,6 +32,10 @@ namespace TravelAppBackend.Data
                 Item item1 = new Item() { Name = "tandenborstel", Category = badkamer };
                 Item item2 = new Item() { Name = "tandpasta", Category = badkamer };
                 Item item3 = new Item() { Name = "kussen", Category = slaapkamer };
+                _context.Items.Add(item1);
+                _context.Items.Add(item2);
+                _context.Items.Add(item3);
+                _context.SaveChanges();
 
                 Task task1 = new Task() { Description = "Visum bestellen online" };
                 Task task2 = new Task() { Description = "Batterij gsm opladen" };
