@@ -13,9 +13,8 @@ namespace TravelAppBackend.Data.Mapping
         public void Configure(EntityTypeBuilder<ItemLine> builder)
         {
             builder.HasOne(il => il.Item)
-                .WithOne()
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Cascade);
+                .WithMany()
+                .IsRequired();
 
         }
     }

@@ -14,8 +14,7 @@ namespace TravelAppBackend.Data.Mapping
         {
             builder.HasOne(c => c.User)
                 .WithMany()
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Cascade);
+                .IsRequired();
         }
     }
 }

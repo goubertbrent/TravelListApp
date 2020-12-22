@@ -32,7 +32,7 @@ namespace TravelAppBackend.Data.Repositories
 
         public IEnumerable<Journey> GetAll()
         {
-            return _journeys.ToList();
+            return _journeys.Include(j => j.Items).Include(j => j.Tasks).ToList();
         }
 
         public Journey GetBy(int journeyId)

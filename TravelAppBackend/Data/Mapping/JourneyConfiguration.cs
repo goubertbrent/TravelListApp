@@ -14,18 +14,15 @@ namespace TravelAppBackend.Data.Mapping
         {
             builder.HasMany(j => j.Items)
                 .WithOne()
-                .IsRequired(false)
-                .OnDelete(DeleteBehavior.Cascade);
+                .IsRequired(false);
 
             builder.HasOne(j => j.User)
                 .WithMany()
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Cascade);
+                .IsRequired();
 
             builder.HasMany(j => j.Tasks)
                 .WithOne()
-                .IsRequired(false)
-                .OnDelete(DeleteBehavior.Cascade);
+                .IsRequired(false);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace TravelAppBackend.Data
     {
         public DbSet<Journey> Journeys { get; set; }
 
-        public AppDbContext()
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
 
         }

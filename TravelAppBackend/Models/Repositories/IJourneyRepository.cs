@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace TravelAppBackend.Models.Repositories
 {
-    interface IJourneyRepository
+    public interface IJourneyRepository
     {
         IEnumerable<Journey> GetAll();
         IEnumerable<Journey> GetByUser(int userId);
