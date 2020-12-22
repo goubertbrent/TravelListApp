@@ -16,11 +16,13 @@ namespace TravelAppBackend.Controllers
     {
         private readonly IJourneyRepository _journeyRepository;
         private readonly IUserRepository _userRepository;
+        private readonly IItemRepository _itemRepository;
 
-        public JourneyController(IJourneyRepository journeyRepository, IUserRepository userRepository)
+        public JourneyController(IJourneyRepository journeyRepository, IUserRepository userRepository, IItemRepository itemRepository)
         {
             _journeyRepository = journeyRepository;
             _userRepository = userRepository;
+            _itemRepository = itemRepository;
         }
 
         [HttpGet]
@@ -54,6 +56,41 @@ namespace TravelAppBackend.Controllers
             _journeyRepository.Add(journey);
             _journeyRepository.SaveChanges();
             return CreatedAtAction(nameof(GetJourneys), new { id = journey.Id }, journeyDTO);
+        }
+
+        [HttpGet("{journeyId}/items/{itemLineId}")]
+        public ActionResult<ItemLine> GetItem(int journeyId, int itemLineId)
+        {
+            if (!_journeyRepository.TryGetJourney(journeyId, out var journey))
+            {
+                return NotFound();
+            }
+            ItemLine itemline = journey.GetItem(itemLineId);
+            if(itemline == null)
+            {
+                return NotFound();
+            }
+            return itemline;
+        }
+
+        [HttpPost("{journeyId}/items")]
+        public ActionResult<ItemLine> PostItemLine(int journeyId, ItemLineDTO itemlineDTO)
+        {
+            if(!_journeyRepository.TryGetJourney(journeyId, out var journey))
+            {
+                return NotFound();
+            }
+
+            ItemLine itemline = new ItemLine()
+            {
+                Amount = itemlineDTO.Amount
+                
+            };
+
+            itemline.Item = _itemRepository.getById(itemlineDTO.ItemId);
+            journey.addItem(itemline);
+            _journeyRepository.SaveChanges();
+            return CreatedAtAction("GetJourneys", new { id= journey.Id, itemlineId = itemline.Id }, itemline);
         }
     }
 }

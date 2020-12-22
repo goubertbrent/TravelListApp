@@ -31,6 +31,7 @@ namespace TravelAppBackend.Models
         #region Methods
         public void addItem(ItemLine item) => Items.Add(item);
         public void addTask(Task task) => Tasks.Add(task);
+        public ItemLine GetItem(int id) => Items.SingleOrDefault(j => j.Id == id);
         #endregion
 
     }

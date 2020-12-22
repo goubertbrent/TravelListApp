@@ -32,12 +32,12 @@ namespace TravelAppBackend.Data.Repositories
 
         public IEnumerable<Journey> GetAll()
         {
-            return _journeys.Include(j => j.Items).Include(j => j.Tasks).ToList();
+            return _journeys.ToList();
         }
 
         public Journey GetBy(int journeyId)
         {
-            return _journeys.SingleOrDefault(j => j.Id == journeyId);
+            return _journeys.Include(j => j.Items).ThenInclude(il => il.Item).Include(j => j.Tasks).SingleOrDefault(j => j.Id == journeyId);
         }
 
         public IEnumerable<Journey> GetByUser(int userId)
@@ -48,6 +48,12 @@ namespace TravelAppBackend.Data.Repositories
         public void SaveChanges()
         {
             _dbContext.SaveChanges();
+        }
+
+        public bool TryGetJourney(int id, out Journey journey)
+        {
+            journey = _dbContext.Journeys.Include(j => j.Items).FirstOrDefault(j => j.Id == id);
+            return journey != null;
         }
     }
 }
