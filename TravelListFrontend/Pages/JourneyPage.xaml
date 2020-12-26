@@ -9,6 +9,39 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
+        <Grid.Background>
+            <ImageBrush ImageSource="../Assets/images/ballon.jpg" />
+        </Grid.Background>
+        <StackPanel>
+            <TextBlock HorizontalAlignment="Center" FontSize="36" Margin="0 20 0 0">78 Dagen: Frankrijk</TextBlock>
+            <ListView x:Name="journeyList" HorizontalAlignment="Center">
+                <Grid Background="#80ff80" MinWidth="500" Margin="0 20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock FontSize="36" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Text="Frankrijk"/>
+                    <TextBlock FontSize="20" Grid.Row="1" Margin="0 10 0 0" Grid.Column="1" Text="02/10/2021"/>
+                </Grid>
+                <Grid Background="#80ff80" MinWidth="500">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock FontSize="36" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" Text="Lissabon"/>
+                    <TextBlock FontSize="20" Grid.Row="1" Margin="0 10 0 0" Grid.Column="1" Text="11/12/2021"/>
+                </Grid>
+            </ListView>
+        </StackPanel>
     </Grid>
 </Page>

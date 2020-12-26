@@ -9,7 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <StackPanel Background="#80ff80" Margin="0">
-        <Image Source="../Assets/images/ballon.jpg"  Margin="0,0,0,20"/>
+        <Image Source="../Assets/images/travel-wallpaper.jpg" Stretch="Fill" MaxHeight="400" Margin="0,0,0,20"/>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -34,7 +34,8 @@
                 <TextBlock Grid.Row="2" Grid.Column="0" Text="Password:" FontSize="36"/>
                 <PasswordBox Grid.Row="2" Grid.Column="2" x:Name="TxtPassword" FontSize="36"/>
 
-            <Button Grid.Row="4" Grid.Column="2" Content="Login" FontSize="36"/>
+            <Button Grid.Row="4" Grid.Column="2" Content="Login" FontSize="36" Click="Button_Click"/>
+            <Button Grid.Row="4" Grid.Column="3" Content="Registreer" FontSize="36" Click="Button_Click_1"/>
 
         </Grid>
 
