@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TravelListFrontend.ViewModels;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -22,9 +23,14 @@ namespace TravelListFrontend.Pages
     /// </summary>
     public sealed partial class JourneyPage : Page
     {
+        #region Properties
+        public JourneyPageViewModel viewModel { get; set; }
+        #endregion
         public JourneyPage()
         {
             this.InitializeComponent();
+            viewModel = new JourneyPageViewModel();
+            JourneyList.DataContext = new CollectionViewSource { Source = viewModel.Journeys };
         }
     }
 }
