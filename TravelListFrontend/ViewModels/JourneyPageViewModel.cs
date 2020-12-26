@@ -36,6 +36,15 @@ namespace TravelListFrontend.ViewModels
                 Journeys.Add(journey);
             }
         }
+
+        public async void PostJourney(Journey newJourney)
+        {
+            var journeyJson = JsonConvert.SerializeObject(newJourney);
+
+            HttpClient client = new HttpClient();
+
+            var res = await client.PostAsync("http://localhost:59489/api/journey", new StringContent(journeyJson, System.Text.Encoding.UTF8,"application/json"));
+        }
         #endregion
 
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TravelListFrontend.Models;
 using TravelListFrontend.ViewModels;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -31,6 +32,12 @@ namespace TravelListFrontend.Pages
             this.InitializeComponent();
             viewModel = new JourneyPageViewModel();
             JourneyList.DataContext = new CollectionViewSource { Source = viewModel.Journeys };
+        }
+
+        private void newJourneyBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Journey newJourney = new Journey() { Name = nameNewJourney.Text };
+            viewModel.PostJourney(newJourney);
         }
     }
 }

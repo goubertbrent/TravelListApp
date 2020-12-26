@@ -14,6 +14,23 @@
         </Grid.Background>
         <StackPanel>
             <TextBlock HorizontalAlignment="Center" FontSize="36" Margin="0 20 0 0">78 Dagen: Frankrijk</TextBlock>
+            <StackPanel Orientation="Horizontal">
+            <Grid Background="#80ff80" MinWidth="500" Margin="0 20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock FontSize="28" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Text="New Journey"/>
+                    <TextBlock FontSize="28" Grid.Row="1"  VerticalAlignment="Center" Grid.Column="0" Text="Name"/>
+                    <TextBox x:Name="nameNewJourney" FontSize="28" Grid.Row="1" Margin="0 10 0 0"  Grid.Column="1" />
+                    <Button x:Name="newJourneyBtn" FontSize="20" Content="Add Journey" Grid.Row="2" Grid.Column="0" Margin="0 10 0 0" Click="newJourneyBtn_Click"/>
+                </Grid>
             <ListView x:Name="JourneyList" ItemsSource="{Binding}" HorizontalAlignment="Center">
                 <ListView.ItemTemplate>
                 <DataTemplate>
@@ -33,6 +50,7 @@
                 </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>
