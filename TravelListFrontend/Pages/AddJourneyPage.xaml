@@ -1,0 +1,38 @@
+﻿<Page
+    x:Class="TravelListFrontend.Pages.AddJourneyPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TravelListFrontend.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="../Assets/images/ballon.jpg" />
+        </Grid.Background>
+        <StackPanel>
+            <TextBlock FontSize="36" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Text="Voeg een nieuwe reis toe"/>
+            <Grid Background="#80ff80" MinWidth="500" Margin="0 20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock FontSize="28" Grid.Row="0"  VerticalAlignment="Center" Grid.Column="0" Text="Naam reis" />
+                <TextBox x:Name="nameNewJourney" FontSize="28" Grid.Row="0" Margin="0 50"  Grid.Column="1" />
+                <TextBlock FontSize="28" Grid.Row="1"  VerticalAlignment="Center" Grid.Column="0" Text="Begindatum reis"/>
+                <CalendarDatePicker x:Name="startDateJourney" FontSize="28" HorizontalAlignment="Left" PlaceholderText="Pick a date"  Grid.Row="1" Grid.Column="1" Margin="0 50"/>
+                <TextBlock x:Name="SuccesfullAddedTxt" Visibility="Collapsed" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Reis succesvol toegevoegd!" Grid.Row="2" Grid.Column="2"/>
+                <Button x:Name="newJourneyBtn" FontSize="28" Content="Voeg reis toe" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Right" Margin="0 10 0 0" Click="newJourneyBtn_Click"/>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using TravelListFrontend.DTO;
 using TravelListFrontend.Models;
 using TravelListFrontend.ViewModels;
 using Windows.Foundation;
@@ -22,16 +23,24 @@ namespace TravelListFrontend.Pages
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class JourneyPage : Page
+    public sealed partial class AddJourneyPage : Page
     {
-        #region Properties
         public JourneyPageViewModel viewModel { get; set; }
-        #endregion
-        public JourneyPage()
+        public AddJourneyPage()
         {
             this.InitializeComponent();
             viewModel = new JourneyPageViewModel();
-            JourneyList.DataContext = new CollectionViewSource { Source = viewModel.Journeys };
+        }
+
+        private void newJourneyBtn_Click(object sender, RoutedEventArgs e)
+        {
+            DateTime startDate = startDateJourney.Date.Value.DateTime;
+            JourneyDTO newJourney = new JourneyDTO() { Name = nameNewJourney.Text, StartDay = startDate.Day, startMonth = startDate.Month, startYear = startDate.Year };
+            viewModel.PostJourney(newJourney);
+            nameNewJourney.Text = "";
+            SuccesfullAddedTxt.Text = startDateJourney.Date.Value.DateTime.ToString();
+            startDateJourney.Date = null;
+            SuccesfullAddedTxt.Visibility = Visibility.Visible;
         }
     }
 }

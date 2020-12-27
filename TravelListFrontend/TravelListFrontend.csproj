@@ -119,6 +119,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DTO\JourneyDTO.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -128,6 +129,9 @@
     <Compile Include="Models\Journey.cs" />
     <Compile Include="Models\Task.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Pages\AddJourneyPage.xaml.cs">
+      <DependentUpon>AddJourneyPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\JourneyPage.xaml.cs">
       <DependentUpon>JourneyPage.xaml</DependentUpon>
     </Compile>
@@ -162,6 +166,10 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\AddJourneyPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\JourneyPage.xaml">
       <SubType>Designer</SubType>

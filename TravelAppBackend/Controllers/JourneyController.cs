@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -45,10 +46,14 @@ namespace TravelAppBackend.Controllers
         [HttpPost]
         public ActionResult<JourneyDTO> PostJourney(JourneyDTO journeyDTO)
         {
+            Debug.WriteLine("Teeeeeeeeeeeeest");
+            Debug.WriteLine(journeyDTO.StartDay);
+            Debug.WriteLine(journeyDTO.StartMonth);
+            Debug.WriteLine(journeyDTO.StartYear);
             Journey journey = new Journey()
             {
                 Name = journeyDTO.Name,
-                Start = DateTime.Now
+                Start = new DateTime(journeyDTO.StartYear,journeyDTO.StartMonth, journeyDTO.StartDay)
             };
 
             journey.User = _userRepository.GetBy(journeyDTO.userId);

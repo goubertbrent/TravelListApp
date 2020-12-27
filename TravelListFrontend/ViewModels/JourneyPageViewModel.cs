@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using TravelListFrontend.DTO;
 using TravelListFrontend.Models;
 
 namespace TravelListFrontend.ViewModels
@@ -37,12 +38,10 @@ namespace TravelListFrontend.ViewModels
             }
         }
 
-        public async void PostJourney(Journey newJourney)
+        public async void PostJourney(JourneyDTO newJourney)
         {
             var journeyJson = JsonConvert.SerializeObject(newJourney);
-
             HttpClient client = new HttpClient();
-
             var res = await client.PostAsync("http://localhost:59489/api/journey", new StringContent(journeyJson, System.Text.Encoding.UTF8,"application/json"));
         }
         #endregion
